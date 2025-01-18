@@ -124,8 +124,30 @@ void solve()
 {
     int n, k;
     cin >> n >> k;
-    vector<int> v(n);
+    vector<int> v;
     cinall(v, n);
-    sort(all(v));
-    printv(v);
+    map<int, int> mp;
+    for (auto it : v)
+    {
+        mp[it]++;
+    }
+    vector<pair<int, int>> v2;
+    for (auto it : mp)
+    {
+        v2.pb({it.second, it.first});
+    }
+    sort(all(v2));
+    int cnt = 0;
+    int psum = 0;
+    for (auto it : v2)
+    {
+        psum += it.first;
+        if (psum > k)
+        {
+            cnt++;
+        }
+    }
+    cout << max(1,cnt) << nl;
+
+   // cout << nl;
 }
