@@ -126,7 +126,7 @@ void solve()
     cin >> n >> k;
     vector<int> v;
     cinall(v, n);
-    map<int, int> mp;
+    unordered_map<int, int> mp;
     for (auto it : v)
     {
         mp[it]++;
@@ -142,12 +142,7 @@ void solve()
     for (auto it : v2)
     {
         psum += it.first;
-        if (psum > k)
-        {
-            cnt++;
-        }
+        cnt += (psum > k);
     }
-    cout << max(1,cnt) << nl;
-
-   // cout << nl;
+    cout << max(1, cnt) << nl;
 }
