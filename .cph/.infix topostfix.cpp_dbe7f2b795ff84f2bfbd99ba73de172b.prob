@@ -1,0 +1,1 @@
+{"name":"Local: infix topostfix","url":"e:\\cf problems\\infix topostfix.cpp","tests":[{"id":1715905864993,"input":"a+b*(c^d-e)^(f+g*h)-i","output":"abcd^e-fgh*+^*+i-"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\cf problems\\infix topostfix.cpp","group":"local","local":true}

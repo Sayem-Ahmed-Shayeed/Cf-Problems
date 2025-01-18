@@ -1,0 +1,84 @@
+#include <bits/stdc++.h>
+//_____________________
+
+#define i64 long long
+#define i32 int
+#define pb push_back
+#define eb emplace_back
+#define yes cout << "YES\n"
+#define no cout << "NO\n"
+#define nl "\n"
+//______________________
+
+// find in a string s.find("it")!=string::npos
+#define PI 3.14159265359
+using namespace std;
+
+int partition(vector<int> &v, int low, int high)
+{
+    int pivot = v[low];
+    int i = low;
+    int j = high;
+    while (i < j)
+    {
+        while (i < high and v[i] <= pivot)
+        {
+            i++;
+        }
+        while (j > low and v[j] > pivot)
+        {
+            j--;
+        }
+        if (i < j)
+        {
+            swap(v[i], v[j]);
+        }
+    }
+    swap(v[low], v[j]);
+    return j;
+}
+void quicksort(vector<int> &v, int low, int high)
+{
+    if (low < high)
+    {
+        int pindex = partition(v, low, high);
+        quicksort(v, low, pindex - 1);
+        quicksort(v, pindex + 1, high);
+    }
+}
+
+int main()
+{
+    ios_base::sync_with_stdio(NULL);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    int t = 1;
+    cin >> t;
+    while (t--)
+    {
+        int x, y;
+        cin >> x >> y;
+        int res = 0;
+
+        res += (y / 2);
+        y %= 2;
+
+        x -= res * 7;
+        x = max(0, x);
+
+        if (y > 0)
+        {
+            res++;
+            x -= 11;
+            x = max(0, x);
+        }
+        if (x > 0)
+        {
+            res += (x / 15);
+        }
+        if (x % 15 != 0)
+            res++;
+
+        cout << res << endl;
+    }
+}
